@@ -20,9 +20,9 @@ $(document).ready(function() {
     }
   }
 
-  for (var i=0;i<3;i++) {
+  //for (var i=0;i<3;i++) {
     $.get(serverUrl+":5252",eventRecieved) //add 3 event listeners for good measure
-  }
+  //}
 
   console.log("AAAAA")
 })
