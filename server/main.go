@@ -10,8 +10,7 @@ var playerList []players.Player
 func main() {
 	quitChan := make(chan struct{})
 	networkPlayerList=[]players.NetworkPlayer{players.NewNetworkPlayer("uwe",3,"192.168.1.25")}
-	serverFunc(quitChan)
-	go gameLoop()
+	go serverFunc(quitChan)
 	fmt.Println("aaaaaaaaa")
-	for {}
+	gameLoop()
 }
