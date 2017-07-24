@@ -16,7 +16,7 @@ $(document).ready(function() {
       var str = document.getElementById("chatbox").value
       document.getElementById("chatbox").value = ""
       addToChat("Me",str)
-      $.post(serverUrl+":6565",str,function(){})
+      $.post(serverUrl+":6565",str,function(){console.log("sent chat")})
     }
   }
 
