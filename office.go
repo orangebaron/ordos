@@ -4,5 +4,5 @@ type office struct {
 	basicBuilding
 }
 
-func (*apartment) getType() string { return "office" }
-func (b *apartment) getRent() int  { return 6 }
+func (*office) getType() string { return "office" }
+func (*office) getRent() int    { return 6 }
