@@ -18,6 +18,7 @@ type basicBuilding struct {
 }
 
 func (b *basicBuilding) getOwner() *player          { return b.owner }
+func (*basicBuilding) getRevenue() int              { return 0 }
 func (b *basicBuilding) getClosed() bool            { return b.closed }
 func (b *basicBuilding) setClosed(c bool)           { b.closed = c }
 func (*basicBuilding) routinelyCalledFunc(int, int) {}
