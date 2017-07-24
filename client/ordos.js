@@ -1,4 +1,4 @@
-const serverUrl = "192.168.1.14"
+const serverUrl = "http://192.168.1.14"
 
 function addToChat(speaker,msg) {
   document.getElementById("chatbar").innerHTML += '<p class="chat"><b class="' +

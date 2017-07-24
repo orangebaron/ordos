@@ -17,6 +17,7 @@ func getPlayerOfIp(ip string) players.NetworkPlayer {
 
 func handleConn1(conn net.Conn) {
 	fmt.Println("conn 1")
+	fmt.Println(conn.RemoteAddr().String())
 	plr := getPlayerOfIp(conn.RemoteAddr().String())
 	for len(plr.GetDataToBeSent()) == 0 {
 		time.Sleep(time.Second / 2)
