@@ -49,20 +49,35 @@ func handleConn2(conn net.Conn) {
 	}
 }
 
-func serverFunc(quitChan chan struct{}) {
-	fmt.Println("not 65")
-	ln1, _ := net.Listen("tcp", ":5252") //event listeners
-	ln2, _ := net.Listen("tcp", ":6565") //chat
+func checkLoop1(quitChan chan struct{}) {
+	ln, _ := net.Listen("tcp", ":5252") //event listeners
 	for {
 		select {
 		case <-quitChan:
 			fmt.Println("65")
 			return
 		default:
-			conn1, _ := ln1.Accept()
-			go handleConn1(conn1)
-			conn2, _ := ln2.Accept()
-			go handleConn2(conn2)
+			conn, _ := ln.Accept()
+			go handleConn1(conn)
 		}
 	}
+}
+func checkLoop2(quitChan chan struct{}) {
+	ln, _ := net.Listen("tcp", ":6565") //chat
+	for {
+		select {
+		case <-quitChan:
+			fmt.Println("65")
+			return
+		default:
+			conn, _ := ln.Accept()
+			go handleConn2(conn)
+		}
+	}
+}
+
+func setupServer(quitChan chan struct{}) {
+	go checkLoop1(quitChan)
+	go checkLoop2(quitChan)
+	fmt.Println("server loaded")
 }
