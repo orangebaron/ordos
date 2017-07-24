@@ -1,5 +1,6 @@
 package main
 
+import "fmt"
 import "net"  //now look at this net that I just found
 import "time" //time is a tool you can put on the wall or wear it on your wrist
 //the past is far behind us, the future doesn't exist
@@ -15,6 +16,7 @@ func getPlayerOfIp(ip string) players.NetworkPlayer {
 }
 
 func handleConn1(conn net.Conn) {
+	fmt.Println("conn 1")
 	plr := getPlayerOfIp(conn.RemoteAddr().String())
 	for len(plr.GetDataToBeSent()) == 0 {
 		time.Sleep(time.Second / 2)
@@ -26,6 +28,7 @@ func handleConn1(conn net.Conn) {
 }
 
 func handleConn2(conn net.Conn) {
+	fmt.Println("conn 2")
 	var chat []byte
 	_, err := conn.Read(chat)
 	if err != nil {
