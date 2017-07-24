@@ -1,9 +1,9 @@
 package players
 
 type Player interface {
-	getName() string
-	getMoney() int
-	addMoney(int)
+	GetName() string
+	GetMoney() int
+	AddMoney(int)
 }
 
 type basicPlayer struct {
@@ -11,6 +11,6 @@ type basicPlayer struct {
 	money int
 }
 
-func (p *basicPlayer) getName() string { return p.name }
-func (p *basicPlayer) getMoney() int   { return p.money }
-func (p *basicPlayer) addMoney(a int)  { p.money += a }
+func (p *basicPlayer) GetName() string { return p.name }
+func (p *basicPlayer) GetMoney() int   { return p.money }
+func (p *basicPlayer) AddMoney(a int)  { p.money += a }
