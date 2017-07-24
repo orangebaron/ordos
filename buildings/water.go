@@ -6,7 +6,7 @@ type water struct{}
 
 func (*water) GetType() string              { return "water" }
 func (*water) GetOwner() *players.Player    { return nil }
-func (*water) SetOwner(*players.Player) {}
+func (*water) SetOwner(*players.Player)     {}
 func (*water) GetRevenue() int              { return 0 }
 func (*water) GetRent() int                 { return 0 }
 func (*water) GetClosed() bool              { return false }
