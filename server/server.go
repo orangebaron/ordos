@@ -24,6 +24,7 @@ func handleConn1(conn net.Conn) {
 	var x []byte
 	conn.Read(x)
 	n,err := conn.Write([]byte("aaa\x00"))
+	conn.Read(x)
 	fmt.Println(x,n,err)
 	/*fmt.Println(conn.RemoteAddr().String())
 	plr := getPlayerOfIp(conn.RemoteAddr().String())
