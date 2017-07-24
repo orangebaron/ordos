@@ -10,7 +10,7 @@ import "./players"
 func getPlayerOfIp(ip string) players.NetworkPlayer {
 	for _, plr := range networkPlayerList {
 		plrIp := plr.GetIp()
-		if plrIp[:strings.Index(plrIp, ":")] == ip {
+		if plrIp == ip[:strings.Index(ip, ":")] {
 			return plr
 		}
 	}
