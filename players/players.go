@@ -1,6 +1,6 @@
-package main
+package players
 
-type player interface {
+type Player interface {
 	getName() string
 	getMoney() int
 	addMoney(int)
