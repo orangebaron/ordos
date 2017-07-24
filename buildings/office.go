@@ -1,8 +1,8 @@
 package buildings
 
-type Office struct {
+type office struct {
 	basicBuilding
 }
 
-func (*Office) GetType() string { return "office" }
-func (*Office) GetRent() int    { return 6 }
+func (*office) GetType() string { return "office" }
+func (*office) GetRent() int    { return 6 }

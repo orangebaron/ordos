@@ -2,14 +2,15 @@ package buildings
 
 import "../players"
 
-type Water struct{}
+type water struct{}
 
-func (*Water) GetType() string              { return "Water" }
-func (*Water) GetOwner() *players.Player    { return nil }
-func (*Water) GetRevenue() int              { return 0 }
-func (*Water) GetRent() int                 { return 0 }
-func (*Water) GetClosed() bool              { return false }
-func (*Water) SetClosed(bool)               {}
-func (*Water) RoutinelyCalledFunc(int, int) {}
-func (*Water) GetInternalInt(string) int    { return 0 }
-func (*Water) SetInternalInt(string, int)   {}
+func (*water) GetType() string              { return "water" }
+func (*water) GetOwner() *players.Player    { return nil }
+func (*water) SetOwner(*players.Player) {}
+func (*water) GetRevenue() int              { return 0 }
+func (*water) GetRent() int                 { return 0 }
+func (*water) GetClosed() bool              { return false }
+func (*water) SetClosed(bool)               {}
+func (*water) RoutinelyCalledFunc(int, int) {}
+func (*water) GetInternalInt(string) int    { return 0 }
+func (*water) SetInternalInt(string, int)   {}

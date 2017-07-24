@@ -1,16 +1,16 @@
 package buildings
 
-type Apartment struct {
+type apartment struct {
 	basicBuilding
 	improvementLvl int8
 	occupancy      int
 	rate           int
 }
 
-func (*Apartment) GetType() string   { return "Apartment" }
-func (b *Apartment) GetRevenue() int { return b.occupancy * b.rate }
-func (b *Apartment) GetRent() int    { return [3]int{2, 5, 10}[b.improvementLvl] }
-func (b *Apartment) GetInternalInt(name string) int {
+func (*apartment) GetType() string   { return "apartment" }
+func (b *apartment) GetRevenue() int { return b.occupancy * b.rate }
+func (b *apartment) GetRent() int    { return [3]int{2, 5, 10}[b.improvementLvl] }
+func (b *apartment) GetInternalInt(name string) int {
 	switch name {
 	case "improvementLvl":
 		return int(b.improvementLvl)
@@ -22,7 +22,7 @@ func (b *Apartment) GetInternalInt(name string) int {
 		return 0
 	}
 }
-func (b *Apartment) SetInternalInt(name string, val int) {
+func (b *apartment) SetInternalInt(name string, val int) {
 	switch name {
 	case "improvementLvl":
 		b.improvementLvl = int8(val)
