@@ -1,7 +1,7 @@
 package main
 
 import "fmt"
-import "string"
+import "strings"
 import "net"  //now look at this net that I just found
 import "time" //time is a tool you can put on the wall or wear it on your wrist
 //the past is far behind us, the future doesn't exist
