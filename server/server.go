@@ -49,6 +49,7 @@ func serverFunc(quitChan chan struct{}) {
 	for {
 		select {
 		case <-quitChan:
+			console.log("65")
 			return
 		default:
 			conn1, _ := ln1.Accept()
