@@ -44,6 +44,7 @@ func handleConn2(conn net.Conn) {
 }
 
 func serverFunc(quitChan chan struct{}) {
+	fmt.Println("not 65")
 	ln1, _ := net.Listen("tcp", ":5252") //event listeners
 	ln2, _ := net.Listen("tcp", ":6565") //chat
 	for {
