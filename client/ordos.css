@@ -1,0 +1,48 @@
+body {
+  background-color: #444444;
+  font-family: sans-serif;
+}
+.tile {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+}
+.chat {
+  color: white;
+  margin-left: 8px;
+}
+.notme {
+  color: red;
+}
+.me {
+  color: #4477ff;
+}
+#chatbar {
+  position:absolute;
+  width: 25%;
+  height: 90%;
+  left: 0;
+  top: 0;
+  background-color: #222222;
+  overflow-y: scroll;
+}
+#chatbox {
+  position: absolute;
+  width: 25%;
+  height: 10%;
+  left: 0;
+  top: 90%;
+  border: 0;
+  padding: 0;
+  color: white;
+  background-color: #111111;
+  resize: none;
+}
+#gamediv {
+  position: absolute;
+  width: 75%;
+  height: 100%;
+  left: 25%;
+  top: 0;
+  overflow: scroll;
+}
