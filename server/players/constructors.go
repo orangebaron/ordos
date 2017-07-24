@@ -5,5 +5,5 @@ func NewComputerPlayer(name string, money int) ComputerPlayer {
 }
 
 func NewNetworkPlayer(name string, money int, ip string) NetworkPlayer {
-	return &humanPlayer{basicPlayer{name, money}, ip}
+	return &humanPlayer{basicPlayer{name, money}, ip, [][]byte{}}
 }

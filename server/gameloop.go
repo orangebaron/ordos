@@ -6,7 +6,7 @@ import "./buildings"
 func gameLoop() {
 	x := 1 //so rent and revenue is paid every 10 seconds
 	for {
-		time.Sleep(1)
+		time.Sleep(time.Second)
 
 		bForEach(func(b buildings.Building, x, y int) {
 			go b.RoutinelyCalledFunc(x, y)
