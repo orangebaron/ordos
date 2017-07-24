@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
-
-func main() {
-	fmt.Println("aaaaaaaaa")
+func serverFunc(quitChan chan struct{}) {
+	for {
+		select {
+		case <-quitChan:
+			return
+		default:
+			//do things
+		}
+	}
 }
