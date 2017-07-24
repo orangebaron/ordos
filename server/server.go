@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+import "string"
 import "net"  //now look at this net that I just found
 import "time" //time is a tool you can put on the wall or wear it on your wrist
 //the past is far behind us, the future doesn't exist
@@ -8,7 +9,8 @@ import "./players"
 
 func getPlayerOfIp(ip string) players.NetworkPlayer {
 	for _, plr := range networkPlayerList {
-		if plr.GetIp() == ip {
+		plrIp := plr.GetIp()
+		if plrIp[:strings.Index(plrIp, ":")] == ip {
 			return plr
 		}
 	}
