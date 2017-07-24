@@ -21,7 +21,7 @@ $(document).ready(function() {
   }
 
   //for (var i=0;i<3;i++) {
-    $.get(serverUrl+":5252",{},eventRecieved,"text") //add 3 event listeners for good measure
+    $.get(serverUrl+":5252",{},function(data){alert("Data: " + data)},"text") //add 3 event listeners for good measure
   //}
 
   console.log("AAAAA")
