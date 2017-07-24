@@ -1,17 +1,5 @@
 package main
 
-type basicBuilding struct {
-	owner  *player
-	closed bool
-}
-
-func (b *basicBuilding) getOwner() *player          { return b.owner }
-func (b *basicBuilding) getClosed() bool            { return b.closed }
-func (b *basicBuilding) setClosed(c bool)           { b.closed = c }
-func (*basicBuilding) routinelyCalledFunc(int, int) {}
-func (*basicBuilding) getInternalInt(string) int    { return 0 }
-func (*basicBuilding) setInternalInt(string, int)   {}
-
 type building interface {
 	getType() string
 	getOwner() *player
@@ -23,3 +11,15 @@ type building interface {
 	getInternalInt(string) int
 	setInternalInt(string, int)
 }
+
+type basicBuilding struct {
+	owner  *player
+	closed bool
+}
+
+func (b *basicBuilding) getOwner() *player          { return b.owner }
+func (b *basicBuilding) getClosed() bool            { return b.closed }
+func (b *basicBuilding) setClosed(c bool)           { b.closed = c }
+func (*basicBuilding) routinelyCalledFunc(int, int) {}
+func (*basicBuilding) getInternalInt(string) int    { return 0 }
+func (*basicBuilding) setInternalInt(string, int)   {}
