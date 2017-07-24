@@ -26,7 +26,18 @@ func handleConn1(conn net.Conn) {
 }
 
 func handleConn2(conn net.Conn) {
-	//do things
+	var chat []byte
+	_, err := conn.Read(chat)
+	if err != nil {
+		return
+	}
+	chat = append([]byte("CHAT"), chat...)
+	plr := getPlayerOfIp(conn.RemoteAddr().String())
+	for _, plr2 := range networkPlayerList {
+		if plr2 != plr {
+			plr2.SendData(chat)
+		}
+	}
 }
 
 func serverFunc(quitChan chan struct{}) {
