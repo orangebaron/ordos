@@ -14,7 +14,9 @@ func getPlayerOfIp(ip string) players.NetworkPlayer {
 			return plr
 		}
 	}
-	return nil
+	//for now, add a player to the list and return it
+	networkPlayerList=append(networkPlayerList,players.NewNetworkPlayer("uwe",3,ip))
+	return networkPlayerList[len(networkPlayerList)-1]
 }
 
 func handleConn1(conn net.Conn) {
@@ -32,6 +34,7 @@ func handleConn1(conn net.Conn) {
 
 func handleConn2(conn net.Conn) {
 	fmt.Println("conn 2")
+	fmt.Println(conn.RemoteAddr().String())
 	var chat []byte
 	_, err := conn.Read(chat)
 	if err != nil {
