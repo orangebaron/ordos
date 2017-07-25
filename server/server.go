@@ -131,7 +131,8 @@ func chatFunc(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("conn 2")
 	fmt.Println(r.RemoteAddr)
 	var chat []byte
-	chat = []byte("aaa")
+	//chat = []byte("aaa")
+	r.Body.Read(chat)
 	fmt.Println(chat)
 	fmt.Println(r.Header,r.Body)
 	/*if err != nil {
