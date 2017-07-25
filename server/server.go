@@ -46,6 +46,7 @@ func handleConn2(conn net.Conn) {
 		return
 	}
 	chat = append([]byte("CHAT"), chat...)
+	fmt.Println(chat)
 	plr := getPlayerOfIp(conn.RemoteAddr().String())
 	for _, plr2 := range networkPlayerList {
 		if plr2 != plr {

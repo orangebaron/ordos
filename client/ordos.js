@@ -16,12 +16,12 @@ $(document).ready(function() {
       var str = document.getElementById("chatbox").value
       document.getElementById("chatbox").value = ""
       addToChat("Me",str)
-      //$.post(serverUrl+":6565",str,function(){console.log("sent chat")})
+      $.post(serverUrl+":6565",str,function(){console.log("sent chat")})
     }
   }
 
   //for (var i=0;i<3;i++) {
-    $.post(serverUrl+":5252","mmm",function(data){alert("Data: " + data)}) //add 3 event listeners for good measure
+    //$.post(serverUrl+":5252","mmm",function(data){alert("Data: " + data)}) //add 3 event listeners for good measure
   //}
 
   console.log("AAAAA")
