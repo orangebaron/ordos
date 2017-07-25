@@ -21,6 +21,6 @@ $(document).ready(function() {
   }
 
   for (var i=0;i<3;i++) {
-    $.get(serverUrl+":8081/event",eventRecieved) //add 3 event listeners for good measure
+    $.get(serverUrl+":8081/ordos.html",eventRecieved) //add 3 event listeners for good measure
   }
 })
