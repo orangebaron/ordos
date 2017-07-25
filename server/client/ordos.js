@@ -26,7 +26,7 @@ $(document).ready(function() {
       var str = document.getElementById("chatbox").value
       str = str.substring(0,str.length-1)
       document.getElementById("chatbox").value = ""
-      if (str==0) {
+      if (str!="") {
         $.post(serverUrl+":8081/chat",str,function(){console.log("sent chat "+str)})
       }
     }
