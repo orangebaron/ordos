@@ -131,5 +131,5 @@ func setupServer(quitChan chan struct{}) {
 	http.HandleFunc("/ordos.js",fileServe)
 	http.HandleFunc("/ordos.css",fileServe)
 	http.HandleFunc("/event",eventFunc)
-	http.ListenAndServe(":8080",nil)
+	http.ListenAndServe(":8081",nil)
 }
