@@ -61,4 +61,5 @@ func setupServer(quitChan chan struct{}) {
 	http.HandleFunc("/event",eventFunc)
 	http.HandleFunc("/chat",chatFunc)
 	http.ListenAndServe(":8081",nil)
+	fmt.Println("Server loaded")
 }

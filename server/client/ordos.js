@@ -25,7 +25,6 @@ $(document).ready(function() {
     if (key.key=="Enter") {
       var str = document.getElementById("chatbox").value
       document.getElementById("chatbox").value = ""
-      //addToChat("Me",str)
       $.post(serverUrl+":8081/chat",str,function(){console.log("sent chat")})
     }
   }
