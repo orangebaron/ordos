@@ -22,6 +22,9 @@ func fileServe(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("conn0")
 	b,e := ioutil.ReadFile("client/"+html.EscapeString(r.URL.Path)[1:])
 	fmt.Println(e)
+	if r.URL.Path[len(r.URL.Path)-4:] == ".css" {
+		w.Header().Set("Content-Type", "text/css; charset=utf-8")
+	}
 	w.Write(b)
 }
 func eventFunc(w http.ResponseWriter, r *http.Request) {
