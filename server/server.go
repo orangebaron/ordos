@@ -118,6 +118,7 @@ func fileServe(w http.ResponseWriter, r *http.Request) {
 func eventFunc(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("conn1")
 	w.Write([]byte{65})
+	time.Sleep(0)
 	/*fmt.Println(r.RemoteAddr)
 	plr := getPlayerOfIp(r.RemoteAddr)
 	for len(plr.GetDataToBeSent()) == 0 {
