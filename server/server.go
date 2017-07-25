@@ -21,7 +21,7 @@ func getPlayerOfIp(ip string) players.NetworkPlayer {
 
 func handleConn1(conn net.Conn) {
 	fmt.Println("conn 1")
-	conn.Write([]byte{65}])
+	conn.Write([]byte{65})
 	/*fmt.Println(conn.RemoteAddr().String())
 	plr := getPlayerOfIp(conn.RemoteAddr().String())
 	for len(plr.GetDataToBeSent()) == 0 {
