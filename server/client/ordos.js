@@ -7,7 +7,6 @@ function addToChat(speaker,msg) {
 }
 
 function eventRecieved(data,status) {
-  console.log(data,status)
   $.get(serverUrl+":8081/event",eventRecieved) //server waits until there's new info to give then gives it
 
   if (data.substring(0,4) == "CHAT") {
@@ -27,7 +26,7 @@ $(document).ready(function() {
       document.getElementById("chatbox").value = ""
       str = str.substring(0,str.length-1)
       if (str!="") {
-        $.post(serverUrl+":8081/chat",str,function(){console.log("sent chat "+str)})
+        $.post(serverUrl+":8081/chat",str)
       }
     }
   }
