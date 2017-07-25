@@ -130,24 +130,16 @@ func eventFunc(w http.ResponseWriter, r *http.Request) {
 func chatFunc(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("conn 2")
 	fmt.Println(r.RemoteAddr)
-	var chat []byte
-	//chat = []byte("aaa")
+	chat := ""
 	r.ParseForm()
-	fmt.Println(r.Form)
 	for key := range r.Form {
-		chat=[]byte(key)
+		chat=key
+		break
 	}
-	fmt.Println(chat)
-	//fmt.Println(r.Header,r.Body)
-	/*if err != nil {
-		return
-	}*/
-	chat = append([]byte("CHAT"), chat...)
 	plr := getPlayerOfIp(r.RemoteAddr)
+	data := []byte("CHAT"+plr.name+": "+chat)
 	for _, plr2 := range networkPlayerList {
-		if plr2 != plr {
-			plr2.SendData(chat)
-		}
+		plr2.SendData(data)
 	}
 }
 func setupServer(quitChan chan struct{}) {
