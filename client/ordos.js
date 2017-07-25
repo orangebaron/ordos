@@ -20,9 +20,7 @@ $(document).ready(function() {
     }
   }
 
-  //for (var i=0;i<3;i++) {
-    //$.post(serverUrl+":5252","mmm",function(data){alert("Data: " + data)}) //add 3 event listeners for good measure
-  //}
-
-  console.log("AAAAA")
+  for (var i=0;i<3;i++) {
+    $.post(serverUrl+":5252",eventRecieved) //add 3 event listeners for good measure
+  }
 })

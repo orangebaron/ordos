@@ -3,7 +3,7 @@ package main
 import "fmt"
 import "strings"
 import "net"  //now look at this net that I just found
-//import "time" //time is a tool you can put on the wall or wear it on your wrist
+import "time" //time is a tool you can put on the wall or wear it on your wrist
 //the past is far behind us, the future doesn't exist
 import "./players"
 
@@ -21,12 +21,7 @@ func getPlayerOfIp(ip string) players.NetworkPlayer {
 
 func handleConn1(conn net.Conn) {
 	fmt.Println("conn 1")
-	var x []byte
-	conn.Read(x)
-	n,err := conn.Write([]byte("aaa\x00"))
-	conn.Read(x)
-	fmt.Println(x,n,err)
-	/*fmt.Println(conn.RemoteAddr().String())
+	fmt.Println(conn.RemoteAddr().String())
 	plr := getPlayerOfIp(conn.RemoteAddr().String())
 	for len(plr.GetDataToBeSent()) == 0 {
 		time.Sleep(time.Second / 2)
@@ -34,7 +29,7 @@ func handleConn1(conn net.Conn) {
 	_, err := conn.Write(plr.GetDataToBeSent()[0])
 	if err == nil {
 		plr.RemoveASentData()
-	}*/
+	}
 }
 
 func handleConn2(conn net.Conn) {

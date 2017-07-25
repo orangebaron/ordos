@@ -10,6 +10,5 @@ var playerList []players.Player
 func main() {
 	quitChan := make(chan struct{})
 	setupServer(quitChan)
-	fmt.Println("aaaaaaaaa")
 	gameLoop()
 }
