@@ -60,6 +60,6 @@ func setupServer(quitChan chan struct{}) {
 	http.HandleFunc("/ordos.css",fileServe)
 	http.HandleFunc("/event",eventFunc)
 	http.HandleFunc("/chat",chatFunc)
-	http.ListenAndServe(":8081",nil)
+	go http.ListenAndServe(":8081",nil)
 	fmt.Println("Server loaded")
 }
