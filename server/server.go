@@ -47,6 +47,8 @@ func chatFunc(w http.ResponseWriter, r *http.Request) {
 	chat = strings.Replace(chat,"<","&lt;",-1)
 	chat = strings.Replace(chat,">","&gt;",-1)
 
+	fmt.Println(chat)
+
 	plr := getPlayerOfIp(r.RemoteAddr)
 	data := []byte("CHAT"+plr.GetName()+": "+chat)
 	for _, plr2 := range networkPlayerList {
