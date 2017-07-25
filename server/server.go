@@ -43,7 +43,6 @@ func chatFunc(w http.ResponseWriter, r *http.Request) {
 		break
 	}
 
-	chat = strings.Replace(chat,"&","&amp;",1)
 	chat = strings.Replace(chat,"<","&lt;",-1)
 	chat = strings.Replace(chat,">","&gt;",-1)
 
