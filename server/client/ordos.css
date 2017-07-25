@@ -25,6 +25,7 @@ body {
   top: 0;
   background-color: #222222;
   overflow-y: scroll;
+  word-wrap: break-word;
 }
 #chatbox {
   position: absolute;
