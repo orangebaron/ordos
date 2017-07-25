@@ -117,10 +117,7 @@ func fileServe(w http.ResponseWriter, r *http.Request) {
 }
 func eventFunc(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("conn1")
-	//w.Write([]byte{65})
-	fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
-	time.Sleep(0)
-	/*fmt.Println(r.RemoteAddr)
+	fmt.Println(r.RemoteAddr)
 	plr := getPlayerOfIp(r.RemoteAddr)
 	for len(plr.GetDataToBeSent()) == 0 {
 		time.Sleep(time.Second / 2)
@@ -128,12 +125,31 @@ func eventFunc(w http.ResponseWriter, r *http.Request) {
 	_, err := w.Write(plr.GetDataToBeSent()[0])
 	if err == nil {
 		plr.RemoveASentData()
+	}
+}
+func chatFunc(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("conn 2")
+	fmt.Println(r.RemoteAddr)
+	var chat []byte
+	chat = []byte("aaa")
+	fmt.Println(chat)
+	fmt.Println(r.Header,r.Body)
+	/*if err != nil {
+		return
 	}*/
+	chat = append([]byte("CHAT"), chat...)
+	plr := getPlayerOfIp(r.RemoteAddr)
+	for _, plr2 := range networkPlayerList {
+		if plr2 != plr {
+			plr2.SendData(chat)
+		}
+	}
 }
 func setupServer(quitChan chan struct{}) {
 	http.HandleFunc("/ordos.html",fileServe)
 	http.HandleFunc("/ordos.js",fileServe)
 	http.HandleFunc("/ordos.css",fileServe)
 	http.HandleFunc("/event",eventFunc)
+	http.HandleFunc("/chat",chatFunc)
 	http.ListenAndServe(":8081",nil)
 }
