@@ -134,6 +134,9 @@ func chatFunc(w http.ResponseWriter, r *http.Request) {
 	//chat = []byte("aaa")
 	r.ParseForm()
 	fmt.Println(r.Form)
+	for key := range r.Form {
+		chat=[]byte(key)
+	}
 	fmt.Println(chat)
 	//fmt.Println(r.Header,r.Body)
 	/*if err != nil {
