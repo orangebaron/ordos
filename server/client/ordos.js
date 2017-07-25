@@ -1,9 +1,9 @@
 const serverUrl = "http://192.168.1.14"
-const myName = "uwe" // change later
+var myName = "uwe" // change later
 
 function addToChat(speaker,msg) {
   document.getElementById("chatbar").innerHTML += '<p class="chat"><b class="' +
-    (speaker == "Me" ? "" : "not") + 'me">'+speaker+'</b>: '+msg+'</p>'
+    (speaker == myName ? "" : "not") + 'me">'+speaker+'</b>: '+msg+'</p>'
 }
 
 function eventRecieved(data,status) {
