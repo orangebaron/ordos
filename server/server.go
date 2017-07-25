@@ -117,7 +117,8 @@ func fileServe(w http.ResponseWriter, r *http.Request) {
 }
 func eventFunc(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("conn1")
-	fmt.Println(r.RemoteAddr)
+	w.Write([]byte{65})
+	/*fmt.Println(r.RemoteAddr)
 	plr := getPlayerOfIp(r.RemoteAddr)
 	for len(plr.GetDataToBeSent()) == 0 {
 		time.Sleep(time.Second / 2)
@@ -125,7 +126,7 @@ func eventFunc(w http.ResponseWriter, r *http.Request) {
 	_, err := w.Write(plr.GetDataToBeSent()[0])
 	if err == nil {
 		plr.RemoveASentData()
-	}
+	}*/
 }
 func setupServer(quitChan chan struct{}) {
 	http.HandleFunc("/ordos.html",fileServe)
