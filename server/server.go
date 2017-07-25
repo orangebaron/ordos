@@ -137,7 +137,7 @@ func chatFunc(w http.ResponseWriter, r *http.Request) {
 		break
 	}
 	plr := getPlayerOfIp(r.RemoteAddr)
-	data := []byte("CHAT"+plr.name+": "+chat)
+	data := []byte("CHAT"+plr.GetName()+": "+chat)
 	for _, plr2 := range networkPlayerList {
 		plr2.SendData(data)
 	}
