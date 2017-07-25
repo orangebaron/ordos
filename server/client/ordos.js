@@ -7,7 +7,7 @@ function addToChat(speaker,msg) {
 
 function eventRecieved(data,status) {
   console.log(data,status)
-  $.get(serverUrl+":5252",eventRecieved) //server waits until there's new info to give then gives it
+  $.get(serverUrl+":8080",eventRecieved) //server waits until there's new info to give then gives it
 }
 
 $(document).ready(function() {
@@ -16,11 +16,11 @@ $(document).ready(function() {
       var str = document.getElementById("chatbox").value
       document.getElementById("chatbox").value = ""
       addToChat("Me",str)
-      $.post(serverUrl+":6565",str,function(){console.log("sent chat")})
+      //$.post(serverUrl+":8080/chat",str,function(){console.log("sent chat")})
     }
   }
 
   for (var i=0;i<3;i++) {
-    $.post(serverUrl+":5252",eventRecieved) //add 3 event listeners for good measure
+    $.get(serverUrl+":8080/event",eventRecieved) //add 3 event listeners for good measure
   }
 })
