@@ -111,7 +111,7 @@ func getPlayerOfIp(ip string) players.NetworkPlayer {
 }
 func fileServe(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("conn0")
-	b,e := ioutil.ReadFile("client/"+html.EscapeString(r.URL.Path))
+	b,e := ioutil.ReadFile("client/"+html.EscapeString(r.URL.Path)[1:])
 	fmt.Println(e)
 	w.Write(b)
 }
