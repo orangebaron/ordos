@@ -20,7 +20,7 @@ func getPlayerOfIp(ip string) players.NetworkPlayer {
 }
 func fileServe(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("conn0")
-	b,e := ioutil.ReadFile("client/"+html.EscapeString(r.URL.Path)[1:])
+	b,_ := ioutil.ReadFile("client/"+html.EscapeString(r.URL.Path)[1:])
 	if r.URL.Path[len(r.URL.Path)-4:] == ".css" {
 		w.Header().Set("Content-Type", "text/css; charset=utf-8")
 	}
