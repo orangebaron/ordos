@@ -21,7 +21,6 @@ func getPlayerOfIp(ip string) players.NetworkPlayer {
 func fileServe(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("conn0")
 	b,e := ioutil.ReadFile("client/"+html.EscapeString(r.URL.Path)[1:])
-	fmt.Println(e)
 	if r.URL.Path[len(r.URL.Path)-4:] == ".css" {
 		w.Header().Set("Content-Type", "text/css; charset=utf-8")
 	}
@@ -29,7 +28,6 @@ func fileServe(w http.ResponseWriter, r *http.Request) {
 }
 func eventFunc(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("conn1")
-	fmt.Println(r.RemoteAddr)
 	plr := getPlayerOfIp(r.RemoteAddr)
 	for len(plr.GetDataToBeSent()) == 0 {
 		time.Sleep(time.Second / 2)
@@ -41,7 +39,6 @@ func eventFunc(w http.ResponseWriter, r *http.Request) {
 }
 func chatFunc(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("conn 2")
-	fmt.Println(r.RemoteAddr)
 	chat := ""
 	r.ParseForm()
 	for key := range r.Form {
