@@ -7,7 +7,7 @@ function addToChat(speaker,msg) {
 
 function eventRecieved(data,status) {
   console.log(data,status)
-  $.get(serverUrl+":8081",eventRecieved) //server waits until there's new info to give then gives it
+  $.get(serverUrl+":8081/event",eventRecieved) //server waits until there's new info to give then gives it
 }
 
 $(document).ready(function() {
@@ -21,6 +21,6 @@ $(document).ready(function() {
   }
 
   for (var i=0;i<3;i++) {
-    $.get(serverUrl+":8081/ordos.html",eventRecieved) //add 3 event listeners for good measure
+    $.get(serverUrl+":8081/event",eventRecieved) //add 3 event listeners for good measure
   }
 })
