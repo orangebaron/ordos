@@ -1,6 +1,5 @@
 package main
 
-import "fmt"
 import "./players"
 
 var cpuPlayerList []players.ComputerPlayer
