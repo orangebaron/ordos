@@ -16,8 +16,10 @@ func getPlayerOfIp(ip string) players.NetworkPlayer {
 		}
 	}
 	//for now, add a player to the list and return it
-	networkPlayerList = append(networkPlayerList, players.NewNetworkPlayer("uwe", 3, ip))
-	return networkPlayerList[len(networkPlayerList)-1]
+	plr := players.NewNetworkPlayer("uwe", 3, ip)
+	networkPlayerList = append(networkPlayerList, plr)
+	plrInit(plr)
+	return plr
 }
 func fileServe(w http.ResponseWriter, r *http.Request) {
 	b, _ := ioutil.ReadFile("client/" + html.EscapeString(r.URL.Path)[1:])

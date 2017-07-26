@@ -13,6 +13,7 @@ type Building interface {
 	RoutinelyCalledFunc(x, y int)
 	GetInternalInt(string) int
 	SetInternalInt(string, int)
+	ToString(int, int) string
 }
 
 type basicBuilding struct {
@@ -28,3 +29,10 @@ func (b *basicBuilding) SetClosed(c bool)           { b.closed = c }
 func (*basicBuilding) RoutinelyCalledFunc(int, int) {}
 func (*basicBuilding) GetInternalInt(string) int    { return 0 }
 func (*basicBuilding) SetInternalInt(string, int)   {}
+func (b *basicBuilding) ToString(x, y int) string {
+	closed := "F"
+	if b.closed {
+		closed = "T"
+	}
+	return (*b.owner).GetName() + "," + closed + "," + string(x) + "," + string(y)
+}

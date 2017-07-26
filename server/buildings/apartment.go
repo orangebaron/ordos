@@ -32,3 +32,6 @@ func (b *apartment) SetInternalInt(name string, val int) {
 		b.rate = val
 	}
 }
+func (b *apartment) ToString(x, y int) string {
+	return "apartment," + string(b.improvementLvl) + "," + string(b.occupancy) + "," + string(b.rate) + "," + b.basicBuilding.ToString(x, y)
+}

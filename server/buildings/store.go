@@ -32,3 +32,6 @@ func (b *store) SetInternalInt(name string, val int) {
 		b.price = val
 	}
 }
+func (b *store) ToString(x, y int) string {
+	return "store," + string(b.improvementLvl) + "," + string(b.sales) + "," + string(b.price) + "," + b.basicBuilding.ToString(x, y)
+}

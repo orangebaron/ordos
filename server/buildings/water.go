@@ -14,3 +14,6 @@ func (*water) SetClosed(bool)               {}
 func (*water) RoutinelyCalledFunc(int, int) {}
 func (*water) GetInternalInt(string) int    { return 0 }
 func (*water) SetInternalInt(string, int)   {}
+func (b *water) ToString(x, y int) string {
+	return "water," + string(x) + "," + string(y)
+}
