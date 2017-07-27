@@ -55,7 +55,11 @@ func chatFunc(w http.ResponseWriter, r *http.Request) {
 		plr2.SendData(data)
 	}
 }
+func redirFunc(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "/ordos.html", http.StatusMovedPermanently)
+}
 func setupServer(quitChan chan struct{}) {
+	http.HandleFunc("/", redirFunc)
 	http.HandleFunc("/ordos.html", fileServe)
 	http.HandleFunc("/ordos.js", fileServe)
 	http.HandleFunc("/ordos.css", fileServe)
