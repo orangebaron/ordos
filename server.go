@@ -1,13 +1,15 @@
 package main
 
-import "net/http"
-import "fmt"
-import "html"
-import "time"
-import "io/ioutil"
-import "strings"
-import "log"
-import "./players"
+import (
+	"./players"
+	"fmt"
+	"html"
+	"io/ioutil"
+	"log"
+	"net/http"
+	"strings"
+	"time"
+)
 
 func getPlayerOfIp(ip string) players.NetworkPlayer {
 	for _, plr := range networkPlayerList {
