@@ -1,12 +1,16 @@
 package main
 
-import "net/http"
-import "fmt"
-import "html"
-import "time"
-import "io/ioutil"
-import "strings"
-import "./players"
+import (
+	"./players"
+	"flag"
+	"fmt"
+	"html"
+	"io/ioutil"
+	"log"
+	"net/http"
+	"strings"
+	"time"
+)
 
 func getPlayerOfIp(ip string) players.NetworkPlayer {
 	for _, plr := range networkPlayerList {
@@ -54,13 +58,24 @@ func chatFunc(w http.ResponseWriter, r *http.Request) {
 	for _, plr2 := range networkPlayerList {
 		plr2.SendData(data)
 	}
+	log.Println(string(data))
+}
+func redirFunc(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "/ordos.html", http.StatusMovedPermanently)
+}
+
+var srv string
+
+func init() {
+	flag.StringVar(&srv, "http", ":8081", "http server port")
 }
 func setupServer(quitChan chan struct{}) {
+	http.HandleFunc("/", redirFunc)
 	http.HandleFunc("/ordos.html", fileServe)
 	http.HandleFunc("/ordos.js", fileServe)
 	http.HandleFunc("/ordos.css", fileServe)
 	http.HandleFunc("/event", eventFunc)
 	http.HandleFunc("/chat", chatFunc)
-	go http.ListenAndServe(":8081", nil)
+	go http.ListenAndServe(srv, nil)
 	fmt.Println("Server loaded")
 }
