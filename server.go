@@ -2,6 +2,7 @@ package main
 
 import (
 	"./players"
+	"flag"
 	"fmt"
 	"html"
 	"io/ioutil"
@@ -62,6 +63,12 @@ func chatFunc(w http.ResponseWriter, r *http.Request) {
 func redirFunc(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/ordos.html", http.StatusMovedPermanently)
 }
+
+var srv string
+
+func init() {
+	flag.StringVar(&srv, "http", ":8081", "http server port")
+}
 func setupServer(quitChan chan struct{}) {
 	http.HandleFunc("/", redirFunc)
 	http.HandleFunc("/ordos.html", fileServe)
@@ -69,6 +76,6 @@ func setupServer(quitChan chan struct{}) {
 	http.HandleFunc("/ordos.css", fileServe)
 	http.HandleFunc("/event", eventFunc)
 	http.HandleFunc("/chat", chatFunc)
-	go http.ListenAndServe(":8081", nil)
+	go http.ListenAndServe(srv, nil)
 	fmt.Println("Server loaded")
 }
