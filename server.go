@@ -6,6 +6,7 @@ import "html"
 import "time"
 import "io/ioutil"
 import "strings"
+import "log"
 import "./players"
 
 func getPlayerOfIp(ip string) players.NetworkPlayer {
@@ -54,6 +55,7 @@ func chatFunc(w http.ResponseWriter, r *http.Request) {
 	for _, plr2 := range networkPlayerList {
 		plr2.SendData(data)
 	}
+	log.Println(string(data))
 }
 func redirFunc(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/ordos.html", http.StatusMovedPermanently)
